@@ -1,8 +1,10 @@
 {
-	"name": "n8n-nodes-gen-code-auto",
+	"name": "n8n-nodes-clean-data",
 	"version": "0.1.0",
 	"description": "A custom n8n node for generating code based on natural language input.",
-	"keywords": ["n8n-community-node-package"],
+	"keywords": [
+		"n8n-community-node-package"
+	],
 	"license": "MIT",
 	"main": "index.js",
 	"scripts": {
@@ -13,14 +15,17 @@
 		"lintfix": "eslint nodes credentials package.json --fix",
 		"prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"n8n": {
 		"n8nNodesApiVersion": 1,
 		"nodes": [
-			"dist/nodes/gen_code_auto/gen_code.node.js"
+			"dist/nodes/CleanData/CleanData.node.js"
 		]
 	},
 	"devDependencies": {
+		"@types/node": "^22.9.0",
 		"@typescript-eslint/parser": "~5.45",
 		"eslint-plugin-n8n-nodes-base": "^1.11.0",
 		"gulp": "^4.0.2",
