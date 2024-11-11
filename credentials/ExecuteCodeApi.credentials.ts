@@ -7,7 +7,7 @@ import {
 export class ExecuteCodeApi implements ICredentialType {
 	name = 'executeCodeApi';
 	displayName = 'Execute Code API';
-	documentationUrl = 'https://docs.n8n.io/integrations/creating-nodes/build/declarative-style-node/';
+	documentationUrl = 'https://rapidapi.com/judge0-official/api/judge0-ce';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Key',
