@@ -5,8 +5,8 @@ import {
 	IExecuteFunctions,
 } from 'n8n-workflow';
 import { exec } from 'child_process';
-import * as path from 'path';
 import * as util from 'util';
+import * as path from 'path';
 
 const execPromise = util.promisify(exec);
 
@@ -68,16 +68,17 @@ export class CleanData implements INodeType {
 		const returnData: INodeExecutionData[] = [];
 		let outputData: INodeExecutionData[] = [];
 
+		// Path to the Python script
+		const pythonScriptPath = path.join(__dirname, '../../model/rfe_script.py');
+
 		// Call Python script to perform RFE
 		try {
-			// Ensure correct path handling
-			const pythonScriptPath = path.join(__dirname, '../../model/rfe_script.py');
+			// Log the data to debug if necessary
+			console.log('Data sent to Python script:', data);
 
 			// Execute Python script with parameters
 			const { stdout } = await execPromise(
-				`python3 "${pythonScriptPath}" "${JSON.stringify(
-					data,
-				)}" "${targetColumn}" "${numFeatures}"`,
+				`python "${pythonScriptPath}" "${JSON.stringify(data)}" "${targetColumn}" "${numFeatures}"`,
 			);
 
 			const cleanedData = JSON.parse(stdout);
@@ -91,6 +92,7 @@ export class CleanData implements INodeType {
 			returnData.push({
 				json: {
 					error: error.message || 'Error executing RFE script',
+					stack: error.stack || 'No stack available',
 				},
 			});
 		}
