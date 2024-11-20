@@ -1,8 +1,10 @@
 import sys
 import json
+import base64
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import os
 
 def draw_matrix(data_json, target_column, title, type_matrix, output_file):
     # Convert JSON data to DataFrame
@@ -20,7 +22,7 @@ def draw_matrix(data_json, target_column, title, type_matrix, output_file):
             plt.xlabel('Index')
             plt.ylabel(column)
         plt.tight_layout()
-        plt.savefig(output_file)  # Save the plot as an image
+        plt.savefig(output_file)
         plt.close()
 
     elif type_matrix == "pie":
@@ -31,7 +33,7 @@ def draw_matrix(data_json, target_column, title, type_matrix, output_file):
             plt.pie(df[column], labels=df.index, autopct='%1.1f%%', startangle=90)
             plt.title(title)
         plt.tight_layout()
-        plt.savefig(output_file)  # Save the plot as an image
+        plt.savefig(output_file)
         plt.close()
 
     elif type_matrix == "scatter":
@@ -44,7 +46,7 @@ def draw_matrix(data_json, target_column, title, type_matrix, output_file):
             plt.xlabel('Index')
             plt.ylabel(column)
         plt.tight_layout()
-        plt.savefig(output_file)  # Save the plot as an image
+        plt.savefig(output_file)
         plt.close()
 
     elif type_matrix == "box":
@@ -56,23 +58,31 @@ def draw_matrix(data_json, target_column, title, type_matrix, output_file):
             plt.title(title)
             plt.ylabel(column)
         plt.tight_layout()
-        plt.savefig(output_file)  # Save the plot as an image
+        plt.savefig(output_file)
         plt.close()
 
     elif type_matrix == "heatmap":
         plt.figure(figsize=(10, 10))
         sns.heatmap(X.corr(), annot=True, cmap='coolwarm', fmt=".2f")
         plt.title('Correlation Matrix')
-        plt.savefig(output_file)  # Save the plot as an image
+        plt.savefig(output_file)
         plt.close()
 
-# Get JSON data from stdin
 if __name__ == "__main__":
+    # Get JSON data from stdin
     input_data = json.loads(sys.stdin.read())
     target_column = input_data["target_column"]
     data_json = input_data["data"]
     title = input_data["title"]
     type_matrix = input_data["type_matrix"]
-    output_file = input_data["output_file"]  # Path to save the image
+    output_file = input_data["output_file"]
 
+    # Generate the matrix
     draw_matrix(data_json, target_column, title, type_matrix, output_file)
+
+    # Encode the file as Base64 to return it
+    with open(output_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
+
+    # Output Base64 data
+    print(json.dumps({"file": encoded_string, "filename": output_file}))
