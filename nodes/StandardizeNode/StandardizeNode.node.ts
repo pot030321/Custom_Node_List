@@ -12,15 +12,15 @@ import * as fs from 'fs';
 
 const execPromise = util.promisify(exec);
 
-export class DrawMatrix implements INodeType {
+export class StandardizeNode implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Draw Matrix',
-		name: 'drawMatrix',
+		displayName: 'Standardize Node',
+		name: 'standardizeNode',
 		group: ['transform'],
 		version: 1,
-		description: 'Draw matrix to visualize data',
+		description: 'Standardize the input data',
 		defaults: {
-			name: 'Draw Matrix',
+			name: 'Standardize Node',
 		},
 		inputs: '={{["main"]}}',
 		outputs: '={{["main"]}}',

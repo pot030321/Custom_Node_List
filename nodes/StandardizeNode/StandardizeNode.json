@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-draw-matrix",
+	"node": "n8n-nodes-standardize",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Maxtrix"],

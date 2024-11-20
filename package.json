@@ -1,5 +1,5 @@
 {
-	"name": "n8n-nodes-draw-matrix",
+	"name": "n8n-nodes-standardize",
 	"version": "0.1.0",
 	"description": "A custom n8n node for generating code based on natural language input.",
 	"keywords": [
