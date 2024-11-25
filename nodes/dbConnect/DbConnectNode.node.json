@@ -1,0 +1,39 @@
+{
+    "name": "n8n-nodes-db-connect",
+    "version": "0.1.0",
+    "description": "Node for connecting to MySQL and MongoDB and retrieving table or collection names",
+    "author": {
+        "name": "Your Name",
+        "email": "youremail@example.com"
+    },
+    "keywords": ["n8n-community-node-package"],
+    "license": "MIT",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc && gulp build:icons",
+        "lint": "eslint nodes credentials",
+        "format": "prettier --write \"nodes/**/*.ts\" \"credentials/**/*.ts\"",
+        "prepublishOnly": "npm run build && npm run lint"
+    },
+    "dependencies": {
+        "mysql2": "^2.3.3",
+        "mongodb": "^4.3.0"
+    },
+    "devDependencies": {
+        "@types/mysql": "^2.15.18",
+        "@types/mongodb": "^4.0.7",
+        "typescript": "^4.5.2",
+        "gulp": "^4.0.2",
+        "eslint": "^7.32.0",
+        "prettier": "^2.4.1"
+    },
+    "files": ["dist"],
+    "n8n": {
+        "n8nNodesApiVersion": 1,
+        "nodes": ["dist/nodes/DbConnectNode/DbConnectNode.node.js"]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-repo-url"
+    }
+}

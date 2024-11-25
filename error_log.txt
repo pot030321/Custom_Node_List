@@ -1,0 +1,1 @@
+{"timestamp":"2024-11-10T14:13:09+07:00","logLevel":"warning","errorType":"all","errorMessage":"lỗi  Error connecting to database: bad auth : Authentication failed.","workflowName":"My workflow","nodeName":"Logging and Error Handling","workflowId":"Yn8jOtP48jzGY1uE","userLocation":"Unknown Location"}

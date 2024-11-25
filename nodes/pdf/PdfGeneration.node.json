@@ -1,0 +1,21 @@
+{
+	"node": "n8n-nodes-base.PDFGeneration",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Utilities",
+		"Documents"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": ""
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.n8n.io/integrations/builtin/pdf-generation/"
+			}
+		]
+	}
+}

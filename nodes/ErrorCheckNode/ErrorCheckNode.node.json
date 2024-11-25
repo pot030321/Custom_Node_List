@@ -1,0 +1,63 @@
+{
+    "name": "Logging and Error Handling",
+    "description": "Logs details of workflow and handles errors with specific strategies",
+    "properties": [
+      {
+        "displayName": "Error Type",
+        "name": "errorType",
+        "type": "options",
+        "options": [
+          { "name": "Connection Error", "value": "connection" },
+          { "name": "Data Error", "value": "data" },
+          { "name": "Logic Error", "value": "logic" }
+        ],
+        "default": "data",
+        "description": "Select the type of error"
+      },
+      {
+        "displayName": "Custom Error Message",
+        "name": "customErrorMessage",
+        "type": "string",
+        "default": "",
+        "placeholder": "Enter a custom error message...",
+        "description": "Custom message to describe the error"
+      },
+      {
+        "displayName": "Log Level",
+        "name": "logLevel",
+        "type": "options",
+        "options": [
+          { "name": "Info", "value": "info" },
+          { "name": "Warning", "value": "warning" },
+          { "name": "Error", "value": "error" }
+        ],
+        "default": "error",
+        "description": "Select the logging level"
+      },
+      {
+        "displayName": "Storage Location",
+        "name": "storageLocation",
+        "type": "options",
+        "options": [
+          { "name": "Local File", "value": "file" },
+          { "name": "Database", "value": "database" },
+          { "name": "External Service", "value": "external" }
+        ],
+        "default": "file",
+        "description": "Where to store the log information"
+      },
+      {
+        "displayName": "Error Handling Strategy",
+        "name": "errorHandlingStrategy",
+        "type": "options",
+        "options": [
+          { "name": "Retry", "value": "retry" },
+          { "name": "Skip", "value": "skip" },
+          { "name": "Stop Workflow", "value": "stop" }
+        ],
+        "default": "stop",
+        "description": "Define what to do when an error occurs"
+      }
+    ]
+  }
+  

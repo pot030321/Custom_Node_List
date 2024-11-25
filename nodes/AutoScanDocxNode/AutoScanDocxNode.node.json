@@ -1,0 +1,81 @@
+{
+    "node": "n8n-nodes-autoscan-docx.AutoScanDocxNode",
+    "nodeVersion": "1.0",
+    "codexVersion": "1.0",
+    "categories": ["Document Processing", "OCR", "Automation"],
+    "resources": {
+      "credentialDocumentation": [
+        {
+          "url": "https://github.com/PaddlePaddle/PaddleOCR"
+        }
+      ],
+      "primaryDocumentation": [
+        {
+          "url": "https://docs.n8n.io"
+        }
+      ]
+    },
+    "displayName": "Auto Scan DOCX",
+    "name": "autoScanDocxNode",
+    "icon": "file:scan-docx-icon.svg",
+    "group": ["transform"],
+    "description": "Scans DOCX or image files, performs OCR, and extracts main information",
+    "inputs": ["main"],
+    "outputs": ["main"],
+    "defaults": {
+      "name": "Auto Scan DOCX",
+      "color": "#772244"
+    },
+    "properties": [
+      {
+        "displayName": "Document URL",
+        "name": "documentUrl",
+        "type": "string",
+        "default": "",
+        "placeholder": "https://example.com/document.docx",
+        "description": "URL to the DOCX or image file to process"
+      },
+      {
+        "displayName": "Document Type",
+        "name": "documentType",
+        "type": "options",
+        "options": [
+          { "name": "DOCX", "value": "docx" },
+          { "name": "Image", "value": "image" }
+        ],
+        "default": "docx",
+        "description": "Type of document to process (DOCX or image)"
+      },
+      {
+        "displayName": "Output Format",
+        "name": "outputFormat",
+        "type": "options",
+        "options": [
+          { "name": "JSON", "value": "json" },
+          { "name": "Plain Text", "value": "plainText" }
+        ],
+        "default": "json",
+        "description": "Format of the extracted data"
+      },
+      {
+        "displayName": "Department Routing",
+        "name": "departmentRouting",
+        "type": "boolean",
+        "default": true,
+        "description": "Automatically route the document to the correct department based on content"
+      },
+      {
+        "displayName": "Notification Method",
+        "name": "notificationMethod",
+        "type": "options",
+        "options": [
+          { "name": "Email", "value": "email" },
+          { "name": "SMS", "value": "sms" },
+          { "name": "Print", "value": "print" }
+        ],
+        "default": "email",
+        "description": "Method to notify the department or user about the document status"
+      }
+    ]
+  }
+  
